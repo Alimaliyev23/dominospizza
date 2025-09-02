@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .animate-modal {
+    animation: modalIn 0.2s ease-out forwards;
+  }
+
+  @keyframes modalIn {
+    0% {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+.isolate {
+  isolation: isolate;
+}
