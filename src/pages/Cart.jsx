@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { updateAddress } from "../store/authSlice";
 import { updateItemQuantity } from "../store/cartSlice";
 import DominoAPI from "../services/DominoAPI";
-import { CartAccordion } from "../components/cartComponents/CartAccordionComponents.jsx";
+import { CartAccordion } from "../components/CartComponents/CartAccordionComponents.jsx";
 import useOrderSubmit from "../utils/useOrderSubmit";
 import OfferModal from "../components/DealModal/OfferModal";
 import CartList from "../components/CartComponents/CartList";
@@ -125,11 +125,10 @@ const Cart = () => {
         ) : (
           <Link to="/menu">
             <button
-              className={`w-full py-3 rounded-lg my-5 transition ${
-                isCartEmpty
+              className={`w-full py-3 rounded-lg my-5 transition ${isCartEmpty
                   ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                   : "bg-[#0078BC] text-white hover:shadow-lg"
-              }`}
+                }`}
               disabled={isCartEmpty}
             >
               {isCartEmpty ? "Səbət boşdur" : "Menyuya bax"}

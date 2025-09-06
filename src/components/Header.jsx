@@ -3,7 +3,7 @@ import StickyNavbar from "./StickyNavbar";
 import ScrollWatcher from "./ScrollWatcher";
 import MobileBottomMenu from "./MobileBottomMenu";
 import MySlider from "./MySlider";
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation();

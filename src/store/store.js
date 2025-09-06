@@ -7,7 +7,7 @@ import authReducer from "./authSlice";
 import cartReducer from "./cartSlice";
 import ordersReducer from "./ordersSlice";
 import pizzaModalReducer from "./pizzaModalSlice";
-import halfHalfReducer from "./halfHalfSlice"
+import halfHalfReducer from "./halfHalfSlice";
 
 const store = configureStore({
   reducer: {
