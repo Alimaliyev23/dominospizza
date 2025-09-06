@@ -11,7 +11,7 @@ import Layout from "./layouts/MainLayout";
 import Offers from "./pages/Offers";
 import NotFound from "./pages/NotFound";
 import BreadMenu from "./pages/BreadMenu";
-import ChickenMenu from "./pages/ChikenMenu";
+import ChickenMenu from "./pages/ChickenMenu";
 import SaladMenu from "./pages/SaladMenu";
 import SidesMenu from "./pages/SidesMenu";
 import DessertMenu from "./pages/DessertMenu";
