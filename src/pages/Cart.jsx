@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { updateAddress } from "../store/authSlice";
 import { updateItemQuantity } from "../store/cartSlice";
 import DominoAPI from "../services/DominoAPI";
-import { CartAccordion } from "../components/cartComponents/CartAccordionComponents";
+import { CartAccordion } from "../components/cartComponents/CartAccordionComponents.jsx";
 import useOrderSubmit from "../utils/useOrderSubmit";
 import OfferModal from "../components/DealModal/OfferModal";
 import CartList from "../components/CartComponents/CartList";
