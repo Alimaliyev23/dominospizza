@@ -1,4 +1,4 @@
-export const path = "./src/assets/img/";
+export const path = "/assets/img/";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
