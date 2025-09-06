@@ -45,17 +45,20 @@ const CartItem = ({ item, index, onEdit, handleQuantityChange = () => {} }) => {
     
     // Size məlumatı
     if (item.size) {
-      details.push(`${t("size")}: ${renderText(item.size)}`);
+      const sizeValue = t(item.size.toLowerCase()) || renderText(item.size);
+      details.push(`${t("size")}: ${sizeValue}`);
     }
     
     // Cut məlumatı
     if (item.cut) {
-      details.push(`${t("cut")}: ${renderText(item.cut)}`);
+      const cutValue = t(item.cut.toLowerCase()) || renderText(item.cut);
+      details.push(`${t("cut")}: ${cutValue}`);
     }
     
     // Dough məlumatı
     if (item.dough) {
-      details.push(`${t("dough")}: ${renderText(item.dough)}`);
+      const doughValue = t(item.dough.toLowerCase()) || renderText(item.dough);
+      details.push(`${t("dough")}: ${doughValue}`);
     }
     
     return details.join(" • ");
