@@ -41,3 +41,27 @@ export const removeStorage = (key) => {
     localStorage.removeItem(key);
   } catch {}
 };
+
+// User-based wishlist functions
+export const getWishlist = (userId) => {
+  if (userId) {
+    return getStorage(`wishlist_${userId}`);
+  }
+  return getStorage("wishlist"); // fallback for guest users
+};
+
+export const setWishlist = (userId, items) => {
+  if (userId) {
+    setStorage(`wishlist_${userId}`, items);
+  } else {
+    setStorage("wishlist", items);
+  }
+};
+
+export const removeWishlist = (userId) => {
+  if (userId) {
+    removeStorage(`wishlist_${userId}`);
+  } else {
+    removeStorage("wishlist");
+  }
+};

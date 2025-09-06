@@ -9,6 +9,7 @@ import { path } from "../App";
 const PizzaCard = ({ item }) => {
   const dispatch = useDispatch();
   const wishlist = useSelector((state) => state.wishlist.items);
+  const user = useSelector((state) => state.auth.user);
   const { t, i18n } = useTranslation();
   const lang = i18n.language || "az";
 
@@ -21,7 +22,7 @@ const PizzaCard = ({ item }) => {
 
   const handleToggleWishlist = (e) => {
     e.stopPropagation();
-    dispatch(toggleWishlist(item._id));
+    dispatch(toggleWishlist({ id: item._id, userId: user?.id }));
   };
 
   const handleOpenModal = () => {

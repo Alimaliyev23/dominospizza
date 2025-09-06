@@ -5,6 +5,7 @@ import { PhoneInput } from "react-international-phone";
 import { useTranslation } from "react-i18next";
 import { clearFavorites } from "../store/favoritesSlice";
 import { resetCartUser } from "../store/cartSlice";
+import { clearWishlist } from "../store/wishlistSlice";
 
 const bakuDistricts = [
   "Binəqədi",
@@ -170,9 +171,8 @@ const ProfilePage = () => {
             <button
               onClick={() => {
                 dispatch(logout());
-                dispatch(resetCartUser());
+                // Don't clear cart and wishlist on logout - keep them for next login
                 dispatch(clearFavorites());
-                dispatch(clearWishlist());
               }}
               className="px-4 py-2 rounded bg-gray-300 text-gray-700"
             >

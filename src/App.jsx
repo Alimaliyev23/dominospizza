@@ -17,6 +17,8 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "./store/authSlice";
+import { setCartUser } from "./store/cartSlice";
+import { setWishlistUser } from "./store/wishlistSlice";
 import "./i18n";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
@@ -50,7 +52,11 @@ function App() {
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      dispatch(login(JSON.parse(storedUser)));
+      const user = JSON.parse(storedUser);
+      dispatch(login(user));
+      // Switch cart and wishlist to user's data
+      dispatch(setCartUser(user.id));
+      dispatch(setWishlistUser(user.id));
     }
   }, [dispatch]);
 

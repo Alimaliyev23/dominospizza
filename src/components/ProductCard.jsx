@@ -9,6 +9,7 @@ import { t } from "i18next";
 const ProductCard = ({ product, variantMode, onAddToCart }) => {
   const dispatch = useDispatch();
   const wishlist = useSelector((state) => state.wishlist.items);
+  const user = useSelector((state) => state.auth.user);
   const lang = useSelector((state) => state.lang.lang);
   const isFavorite = wishlist.includes(product._id);
 
@@ -45,7 +46,7 @@ const ProductCard = ({ product, variantMode, onAddToCart }) => {
   }, [wishlist, product._id]);
 
   const handleToggleWishlist = () => {
-    dispatch(toggleWishlist(product._id));
+    dispatch(toggleWishlist({ id: product._id, userId: user?.id }));
   };
 
   const getVariantLabel = (variant) => {
