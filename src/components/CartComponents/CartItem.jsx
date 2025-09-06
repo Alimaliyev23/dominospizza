@@ -40,6 +40,27 @@ const CartItem = ({ item, index, onEdit, handleQuantityChange = () => {} }) => {
     return renderText(variant);
   };
 
+  const renderSizeAndCut = () => {
+    const details = [];
+    
+    // Size məlumatı
+    if (item.size) {
+      details.push(`${t("size")}: ${renderText(item.size)}`);
+    }
+    
+    // Cut məlumatı
+    if (item.cut) {
+      details.push(`${t("cut")}: ${renderText(item.cut)}`);
+    }
+    
+    // Dough məlumatı
+    if (item.dough) {
+      details.push(`${t("dough")}: ${renderText(item.dough)}`);
+    }
+    
+    return details.join(" • ");
+  };
+
   const renderSelections = () =>
     Object.values(item.selections || {}).map((sel, i) => (
       <li key={i}>• {renderText(sel.name)}</li>
@@ -79,6 +100,11 @@ const CartItem = ({ item, index, onEdit, handleQuantityChange = () => {} }) => {
             <p className="font-semibold text-[#003752] text-sm sm:text-base">
               {renderName()}
             </p>
+            {renderSizeAndCut() && (
+              <p className="text-sm text-blue-600 font-medium mt-1">
+                {renderSizeAndCut()}
+              </p>
+            )}
             <ul className="text-sm text-gray-500 mt-1 space-y-1">
               {renderSelections()}
             </ul>
@@ -117,6 +143,11 @@ const CartItem = ({ item, index, onEdit, handleQuantityChange = () => {} }) => {
           <p className="font-semibold text-[#003752]">{renderName()}</p>
           {item.selectedVariant && (
             <p className="text-sm text-gray-500">{renderVariant()}</p>
+          )}
+          {renderSizeAndCut() && (
+            <p className="text-sm text-blue-600 font-medium mt-1">
+              {renderSizeAndCut()}
+            </p>
           )}
           <div className="flex items-center gap-2 mt-1">
             <label className="text-sm">{t("quantity")}:</label>

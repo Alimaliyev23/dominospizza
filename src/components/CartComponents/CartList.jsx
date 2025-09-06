@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
-import { path } from "../../App";
+import { getAssetUrl } from "../../App";
 import { useTranslation } from "react-i18next";
 
 const CartList = ({ onEdit, handleQuantityChange = () => {} }) => {
@@ -10,7 +10,7 @@ const CartList = ({ onEdit, handleQuantityChange = () => {} }) => {
   if (cartItems.length === 0) {
     return (
       <div className="flex-1 flex flex-col items-center justify-center text-center">
-        <img src={`${path}empty-cart.webp`} alt="Empty Cart" />
+        <img src={getAssetUrl("empty-cart.webp")} alt="Empty Cart" />
         <p className="mt-4 font-semibold text-lg text-gray-700">{t("empty")}</p>
       </div>
     );
