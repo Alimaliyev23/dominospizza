@@ -22,7 +22,21 @@ const cartSlice = createSlice({
     setCartUser: (state, action) => {
       const id = action.payload;
       state.userId = id;
-      state.items = getStorage(getKey(id));
+      
+      // Əvvəlcə user cart-ını yoxla
+      let userCart = getStorage(getKey(id));
+      
+      // Əgər user cart-ı boşdursa və guest cart-ı varsa, onu köçür
+      if (userCart.length === 0) {
+        const guestCart = getStorage("cart_guest");
+        if (guestCart.length > 0) {
+          userCart = guestCart;
+          setStorage(getKey(id), guestCart);
+          removeStorage("cart_guest");
+        }
+      }
+      
+      state.items = userCart;
       setCurrentUserId(id);
     },
     resetCartUser: (state) => {

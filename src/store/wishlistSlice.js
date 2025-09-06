@@ -9,7 +9,21 @@ const wishlistSlice = createSlice({
   reducers: {
     setWishlistUser: (state, action) => {
       const userId = action.payload;
-      state.items = getWishlist(userId);
+      
+      // Əvvəlcə user wishlist-ini yoxla
+      let userWishlist = getWishlist(userId);
+      
+      // Əgər user wishlist-i boşdursa və guest wishlist-i varsa, onu köçür
+      if (userWishlist.length === 0) {
+        const guestWishlist = getWishlist();
+        if (guestWishlist.length > 0) {
+          userWishlist = guestWishlist;
+          setWishlist(userId, guestWishlist);
+          // Guest wishlist-i təmizləmək lazım deyil, çünki o da eyni key istifadə edir
+        }
+      }
+      
+      state.items = userWishlist;
     },
     toggleWishlist: (state, action) => {
       const { id, userId } = action.payload;

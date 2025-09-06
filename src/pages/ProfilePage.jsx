@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { clearFavorites } from "../store/favoritesSlice";
 import { resetCartUser } from "../store/cartSlice";
 import { clearWishlist } from "../store/wishlistSlice";
+import { getStorage, setStorage } from "../utils/localStorage";
 
 const bakuDistricts = [
   "Binəqədi",
@@ -170,8 +171,18 @@ const ProfilePage = () => {
             </button>
             <button
               onClick={() => {
+                // Logout-dan əvvəl cart və wishlist məlumatlarını guest-ə köçür
+                const currentCart = getStorage(`cart_${user.id}`);
+                const currentWishlist = getStorage(`wishlist_${user.id}`);
+                
+                if (currentCart.length > 0) {
+                  setStorage("cart_guest", currentCart);
+                }
+                if (currentWishlist.length > 0) {
+                  setStorage("wishlist", currentWishlist);
+                }
+                
                 dispatch(logout());
-                // Don't clear cart and wishlist on logout - keep them for next login
                 dispatch(clearFavorites());
               }}
               className="px-4 py-2 rounded bg-gray-300 text-gray-700"
