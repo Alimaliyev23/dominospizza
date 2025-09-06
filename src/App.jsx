@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound";
 import BreadMenu from "./pages/BreadMenu";
 import ChickenMenu from "./pages/ChikenMenu";
 import SaladMenu from "./pages/SaladMenu";
-import SidesMenu from "./pages/sidesMenu";
+import SidesMenu from "./pages/SidesMenu";
 import DessertMenu from "./pages/DessertMenu";
 import DrinkMenu from "./pages/DrinkMenu";
 import WishlistPage from "./pages/WishlistPage";
@@ -87,7 +87,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-      
+
       <div className="hidden md:block fixed bottom-0 left-0 z-50 p-3">
         <a href="tel:6600">
           <img
