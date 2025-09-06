@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { path } from "../App";
+import { path, getAssetUrl } from "../App";
 import SideDrawer from "./SideDrawer";
 import LoginOverlay from "./LoginOverlay";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -57,7 +57,7 @@ const TopNavbar = () => {
 
           <Link to="/" className="flex-1 flex justify-center md:justify-start">
             <img
-              src={`${path}logo.png`}
+              src={getAssetUrl("logo.png")}
               alt="Logo"
               className="h-10 w-auto object-contain"
             />
@@ -70,7 +70,7 @@ const TopNavbar = () => {
               to="/cart"
               className="md:hidden flex flex-col items-center ml-4 relative"
             >
-              <img src={`${path}cart.svg`} alt="Cart" className="h-8 w-8" />
+              <img src={getAssetUrl("cart.svg")} alt="Cart" className="h-8 w-8" />
               {cart.length > 0 && (
                 <span className="absolute -top-1 right-0 bg-red-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
                   {cart.length > 99 ? "99+" : cart.length}
@@ -88,7 +88,7 @@ const TopNavbar = () => {
                     <button onClick={() => setShowLogin(true)}>
                       <div className="relative">
                         <img
-                          src={`${path}${item.img}`}
+                          src={getAssetUrl(item.img)}
                           alt={item.label}
                           className="h-10 w-10"
                         />
@@ -104,7 +104,7 @@ const TopNavbar = () => {
                     <Link to={item.to}>
                       <div className="relative">
                         <img
-                          src={`${path}${item.img}`}
+                          src={getAssetUrl(item.img)}
                           alt={item.label}
                           className="h-10 w-10 m-auto"
                         />

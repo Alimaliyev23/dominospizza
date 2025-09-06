@@ -1,3 +1,17 @@
+// Import assets for Vite bundling
+import loaderGif from "./assets/img/loader.gif";
+import call6600Img from "./assets/img/6600.png";
+
+// Create a function to get asset URLs for dynamic imports
+export const getAssetUrl = (filename) => {
+  // For production, use the public path
+  if (import.meta.env.PROD) {
+    return `/assets/img/${filename}`;
+  }
+  // For development, use the src path
+  return `/src/assets/img/${filename}`;
+};
+
 export const path = "/assets/img/";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
@@ -44,7 +58,7 @@ function App() {
     return (
       <div className="fixed inset-0 flex items-center justify-center z-[9999] bg-white">
         <img
-          src={`${path}loader.gif`}
+          src={loaderGif}
           alt="Loading..."
           className="w-32 h-32 object-contain"
         />
@@ -91,7 +105,7 @@ function App() {
       <div className="hidden md:block fixed bottom-0 left-0 z-50 p-3">
         <a href="tel:6600">
           <img
-            src={`${path}6600.png`}
+            src={call6600Img}
             alt="Call 6600"
             className="w-36 h-20 object-contain cursor-pointer"
           />

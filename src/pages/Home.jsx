@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { path } from "../App";
+import { path, getAssetUrl } from "../App";
 const Home = () => {
   const { t } = useTranslation();
   return (
@@ -13,7 +13,7 @@ const Home = () => {
           <h3 className="text-2xl lg:text-5xl font-bold text-red-600 leading-snug">
             {t("fastDelivery")}
           </h3>
-          <img src={`${path}xett.webp`} alt="xett" className="w-32 md:w-40" />
+          <img src={getAssetUrl("xett.webp")} alt="xett" className="w-32 md:w-40" />
           <p className="text-gray-500 font-semibold text-sm md:text-base leading-relaxed uppercase">
             {t("choosePizza")}
           </p>
@@ -26,7 +26,7 @@ const Home = () => {
                   className="w-32 h-10 sm:w-36 sm:h-11 md:w-40 md:h-12 cursor-pointer"
                 >
                   <img
-                    src={`${path}${img}`}
+                    src={getAssetUrl(img)}
                     className="w-full h-full object-cover"
                     alt={img}
                   />
@@ -38,7 +38,7 @@ const Home = () => {
 
         <div className="w-full md:w-1/2 mt-6 md:mt-0 flex justify-end">
           <img
-            src={`${path}dominos-banner-download-app-9f944170.webp`}
+            src={getAssetUrl("dominos-banner-download-app-9f944170.webp")}
             alt="Dominos App Banner"
             className="w-full h-auto object-cover"
           />
@@ -59,7 +59,7 @@ const Home = () => {
 
           <div className="flex flex-wrap gap-3 mt-4">
             <Link to="/TrackingPage" className="w-32 h-10 sm:w-36 sm:h-11 md:w-40 md:h-12 flex items-center justify-center gap-2 rounded bg-red-500 text-white hover:bg-red-600 transition">
-              <img src={`${path}konum.svg`} className="w-5 h-5" alt="icon" />
+              <img src={getAssetUrl("konum.svg")} className="w-5 h-5" alt="icon" />
               <span className="uppercase text-sm font-bold">
                 {t("trackNow")}
               </span>
@@ -69,7 +69,7 @@ const Home = () => {
 
         <div className="w-full md:w-1/2 mt-6 md:mt-0 flex justify-end">
           <img
-            src={`${path}mobile-store-tracking-banner-2c6882d7.webp`}
+            src={getAssetUrl("mobile-store-tracking-banner-2c6882d7.webp")}
             alt="Dominos App Banner"
             className="w-full h-auto object-cover"
           />
@@ -79,7 +79,7 @@ const Home = () => {
       <div className="w-full flex flex-col md:flex-row items-center justify-between px-4 py-10">
         <div className="w-full md:w-1/2 mt-6 md:mt-0 flex justify-end">
           <img
-            src={`${path}earn-coins-9011d4f3.webp`}
+            src={getAssetUrl("earn-coins-9011d4f3.webp")}
             alt="Dominos Rewards"
             className="w-full h-auto object-cover"
           />
@@ -98,7 +98,7 @@ const Home = () => {
 
           <div className="flex flex-wrap gap-3 mt-4">
             <Link to="/menu" className="w-32 h-10 sm:w-36 sm:h-11 md:w-40 md:h-12 flex items-center justify-center gap-2 rounded bg-red-500 text-white hover:bg-red-600 transition">
-              <img src={`${path}konum.svg`} className="w-5 h-5" alt="icon" />
+              <img src={getAssetUrl("konum.svg")} className="w-5 h-5" alt="icon" />
               <span className="uppercase text-sm font-semibold">
                 {t("orderNow")}
               </span>
@@ -114,7 +114,7 @@ const Home = () => {
              flex flex-wrap justify-end items-center"
         >
           <img
-            src={`${path}make-your-own-pizza-az-85b2c4e1.webp`}
+            src={getAssetUrl("make-your-own-pizza-az-85b2c4e1.webp")}
             alt="Create your pizza"
             className="w-full h-auto object-contain"
           />
@@ -125,7 +125,7 @@ const Home = () => {
                shadow-md text-xs sm:text-sm font-semibold tracking-wide"
           >
             <img
-              src={`${path}cart.svg`}
+              src={getAssetUrl("cart.svg")}
               className="w-4 h-4 sm:w-5 sm:h-5"
               alt="icon"
             />
@@ -134,7 +134,7 @@ const Home = () => {
         </div>
 
         <img
-          src={`${path}create-your-own-banner-77d7e725.webp`}
+          src={getAssetUrl("create-your-own-banner-77d7e725.webp")}
           alt="Pizza Banner"
           className="w-full h-auto object-cover"
         />
